@@ -1,13 +1,16 @@
 import os
 import shutil
+import time
 
 #Welcome
 print("=====================================")
 print("= Hello, welcome to File Organiser. =")
 print("=====================================")
+time.sleep(1)
 
 #Get path of junk folder
-junk_folder = input("Please paste the path of the folder you would like to organise:").strip().replace('"', '')
+print("Please paste the path of the folder you would like to organise:")
+junk_folder = input().strip().replace('"', '')
 
 #Check if folder is a directory
 while not os.path.isdir(junk_folder):
@@ -15,13 +18,16 @@ while not os.path.isdir(junk_folder):
     junk_folder = input("What is the file path?").strip().replace('"', '')
 
 #Confirm folder has been found
-print("Thank you. Folder found.")
+time.sleep(1)
+print("Thank you. Folder found.\n")
+time.sleep(1)
 
 #List files found in folder
 files = os.listdir(junk_folder)
 print("These are the files in that folder:\n")
 for file in files:
     print(file)
+print("\n")
 
 #Define sorting categories
 sorting_categories = {
@@ -53,5 +59,6 @@ for file in files:
             print(f"Moved {file} to {target_folder} folder.")
 
 #Completion message
+time.sleep(1)
 print("All files in this folder have been organised.")
 
